@@ -12,8 +12,9 @@ describe("minUmbrellas", () => {
   test("should return 1 when the passing array with only one umbrella-needed weather", () => {
     expect(minUmbrellas(["rainy"])).toBe(1);
   });
-  test("should return 1 when the passing array with only one umbrellaless weather", () => {
+  test("should return 1 when the passing array without umbrella-needed weather", () => {
     expect(minUmbrellas(["sunny"])).toBe(0);
+    expect(minUmbrellas(["sunny", "windy", "sunny", "clear"])).toBe(0);
   });
   test("should return the numOfUmbrellas needed when the passing array takes multiple weather but only one umbrella-needed weather", () => {
     expect(
@@ -22,7 +23,7 @@ describe("minUmbrellas", () => {
   });
   test("should return the number of umbrella needed when pass an array of multiple weather", () => {
     expect(minUmbrellas(["rainy", "clear", "rainy", "cloudy"])).toBe(2);
-    expect(minUmbrellas(["sunny", "windy", "sunny", "clear"])).toBe(0);
+
     expect(
       minUmbrellas([
         "rainy",
